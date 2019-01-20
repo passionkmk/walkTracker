@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -29,25 +28,26 @@
         <!--Tab Bar Controller-->
         <scene sceneID="NVw-iP-K9M">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="m2g-Sj-ANa" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tabBarController id="za8-RG-oFh" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="L9o-qx-Vz4"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="EaU-Ii-cHQ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="selectedImageTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
                         <segue destination="DBL-Hp-mLz" kind="relationship" relationship="viewControllers" id="AZO-ci-vca"/>
                     </connections>
                 </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="m2g-Sj-ANa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="807" y="96"/>
         </scene>
         <!--WALK-->
         <scene sceneID="1Vd-Qz-rY8">
             <objects>
-                <viewController id="DBL-Hp-mLz" sceneMemberID="viewController">
+                <viewController id="DBL-Hp-mLz" customClass="WalkViewController" customModule="WalkTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xiS-Wf-Ug4">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -55,28 +55,30 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qfb-KC-yEq">
                                 <rect key="frame" x="152.5" y="158.5" width="70" height="60"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
-                                <state key="normal" title="시작"/>
+                                <state key="normal" title="시작">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                             </button>
-                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dyb-XQ-m8j">
-                                <rect key="frame" x="129" y="250.5" width="117" height="166"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Dyb-XQ-m8j">
+                                <rect key="frame" x="120.5" y="250.5" width="134" height="166"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="vf4-yt-Tag">
-                                        <rect key="frame" x="0.0" y="0.0" width="29.5" height="166"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="38.5" height="166"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="거리" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f8X-Qg-UTb">
-                                                <rect key="frame" x="0.0" y="0.0" width="29.5" height="50"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="거리 :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f8X-Qg-UTb">
+                                                <rect key="frame" x="0.0" y="0.0" width="38.5" height="50"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="시간" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ytF-ES-Iw8">
-                                                <rect key="frame" x="0.0" y="58" width="29.5" height="50"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="시간 :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ytF-ES-Iw8">
+                                                <rect key="frame" x="0.0" y="58" width="38.5" height="50"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="속도" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bBQ-x8-nh3">
-                                                <rect key="frame" x="0.0" y="116" width="29.5" height="50"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="속도 :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bBQ-x8-nh3">
+                                                <rect key="frame" x="0.0" y="116" width="38.5" height="50"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -84,7 +86,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="VCt-Ys-w1C">
-                                        <rect key="frame" x="29.5" y="0.0" width="87.5" height="166"/>
+                                        <rect key="frame" x="46.5" y="0.0" width="87.5" height="166"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TGk-oN-rRk">
                                                 <rect key="frame" x="0.0" y="0.0" width="87.5" height="50"/>
@@ -128,6 +130,10 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="WALK" id="vRc-wt-IjB"/>
                     <connections>
+                        <outlet property="distanceLabel" destination="TGk-oN-rRk" id="jja-rR-MCe"/>
+                        <outlet property="durationLabel" destination="uJX-27-Z8o" id="bML-4I-2Hd"/>
+                        <outlet property="paceLabel" destination="Fji-kW-LrV" id="SwU-bi-4N7"/>
+                        <outlet property="starButton" destination="qfb-KC-yEq" id="Nne-aP-624"/>
                         <segue destination="zsS-7M-I6G" kind="show" id="I6H-Uo-Psd"/>
                     </connections>
                 </viewController>

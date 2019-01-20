@@ -14,6 +14,7 @@
 		7B305A6121F2FB580060E71E /* WalkTrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B305A6021F2FB580060E71E /* WalkTrackerTests.swift */; };
 		7B305A6C21F2FB580060E71E /* WalkTrackerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B305A6B21F2FB580060E71E /* WalkTrackerUITests.swift */; };
 		7B305A7D21F441A70060E71E /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B305A7C21F441A70060E71E /* DataModel.swift */; };
+		7B305A8121F446F70060E71E /* WalkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B305A8021F446F70060E71E /* WalkViewController.swift */; };
 		C6667C520D2FCB94FF848F71 /* Pods_WalkTracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C46863375A676ED30840C647 /* Pods_WalkTracker.framework */; };
 /* End PBXBuildFile section */
 
@@ -49,6 +50,7 @@
 		7B305A6B21F2FB580060E71E /* WalkTrackerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkTrackerUITests.swift; sourceTree = "<group>"; };
 		7B305A6D21F2FB580060E71E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7B305A7C21F441A70060E71E /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
+		7B305A8021F446F70060E71E /* WalkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkViewController.swift; sourceTree = "<group>"; };
 		C46863375A676ED30840C647 /* Pods_WalkTracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WalkTracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D030994AF2817E13EED4F00D /* Pods-WalkTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WalkTracker.release.xcconfig"; path = "Pods/Target Support Files/Pods-WalkTracker/Pods-WalkTracker.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -121,6 +123,7 @@
 		7B305A4A21F2FB570060E71E /* WalkTracker */ = {
 			isa = PBXGroup;
 			children = (
+				7B305A7E21F4461B0060E71E /* ViewController */,
 				7B305A7B21F441800060E71E /* Realm */,
 				7B305A4B21F2FB570060E71E /* AppDelegate.swift */,
 				7B305A4F21F2FB570060E71E /* Main.storyboard */,
@@ -155,6 +158,14 @@
 				7B305A7C21F441A70060E71E /* DataModel.swift */,
 			);
 			path = Realm;
+			sourceTree = "<group>";
+		};
+		7B305A7E21F4461B0060E71E /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				7B305A8021F446F70060E71E /* WalkViewController.swift */,
+			);
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -340,6 +351,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7B305A4C21F2FB570060E71E /* AppDelegate.swift in Sources */,
+				7B305A8121F446F70060E71E /* WalkViewController.swift in Sources */,
 				7B305A7D21F441A70060E71E /* DataModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
