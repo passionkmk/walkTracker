@@ -18,21 +18,13 @@ class WalkViewController: UIViewController {
     
     private var walkStatus: WalkStatus = .ready {
         willSet {
-            switch newValue {
-            case .ready:
-                break
-            case .walking:
-                break
-            case .finish:
-                break
-            }
+            self.updateUI(status: newValue)
         }
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-
+        self.updateUI(status: self.walkStatus)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -50,6 +42,26 @@ extension WalkViewController {
             self.walkStatus = .finish
         case .finish:
             self.walkStatus = .ready
+        }
+    }
+}
+
+// MARK: - Functions
+extension WalkViewController {
+    func updateUI(status: WalkStatus) {
+        switch status {
+        case .ready:
+            self.walkButton.setTitle("시작", for: .normal)
+            self.walkButton.setTitleColor(Ready.Color.walkButtonColor, for: .normal)
+            break
+        case .walking:
+            self.walkButton.setTitle("산책중..", for: .normal)
+            self.walkButton.setTitleColor(Walking.Color.walkButtonColor, for: .normal)
+            break
+        case .finish:
+            self.walkButton.setTitle("종료", for: .normal)
+            self.walkButton.setTitleColor(Finish.Color.walkButtonColor, for: .normal)
+            break
         }
     }
 }
