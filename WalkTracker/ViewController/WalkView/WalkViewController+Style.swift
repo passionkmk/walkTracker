@@ -10,7 +10,9 @@ import UIKit
 
 extension WalkViewController {
     enum Ready {
-        
+        enum Font {
+            static let walkButton: UIFont = UIFont(name: "AppleSDGothicNeo-Bold", size: 40)!
+        }
     }
     
     enum Walking {
