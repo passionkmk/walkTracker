@@ -7,9 +7,17 @@
 //
 
 import Foundation
+import CoreLocation
 
 // 거리, 시간, 속도를 계산해서 컨트롤러에 넘겨줌
+public protocol Runner: class {
+    var locations: [CLLocation] { get set }
+    var distance: Measurement<UnitLength> { get set }
+    var duration: Int { get set }
+    func startRun()
+    func endRun()
+}
 
 public class WalkViewModel {
-    
+    let locationManager = LocationManager.shared
 }

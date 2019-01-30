@@ -16,6 +16,8 @@ class WalkViewController: UIViewController {
     @IBOutlet weak var durationLabel: UILabel!
     @IBOutlet weak var paceLabel: UILabel!
     
+    let walk: WalkViewModel = WalkViewModel()
+    
     private var walkStatus: WalkStatus = .ready {
         willSet {
             self.updateUI(status: newValue)
