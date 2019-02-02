@@ -9,7 +9,7 @@
 import Foundation
 import CoreLocation
 
-// 거리, 시간, 속도를 계산해서 컨트롤러에 넘겨줌
+// MARK: - Runner Protocol
 public protocol Runner: class {
     var locations: [CLLocation] { get set }
     var distance: Measurement<UnitLength> { get set }
@@ -18,6 +18,39 @@ public protocol Runner: class {
     func endRun()
 }
 
-public class WalkViewModel {
+// MARK: - Initialize
+public class WalkViewModel: NSObject, Runner {
     let locationManager = LocationManager.shared
+    
+    public var locations: [CLLocation] = []
+    public var distance: Measurement<UnitLength> = Measurement(value: 0, unit: UnitLength.meters)
+    public var duration: Int = 0
+    
+    override init() {
+        super.init()
+        self.locationManager.delegate = self
+    }
+    
+    deinit {
+        
+    }
 }
+
+extension WalkViewModel {
+    public func startRun() {
+        // TODO: - Start Run
+    }
+    
+    public func endRun() {
+        // TODO: - End Run
+    }
+}
+
+// MARK: - CLLocationManager Delegate
+extension WalkViewModel: CLLocationManagerDelegate {
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        
+    }
+}
+
+
