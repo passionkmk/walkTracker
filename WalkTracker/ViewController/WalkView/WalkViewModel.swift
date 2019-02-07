@@ -36,7 +36,7 @@ public class WalkViewModel: NSObject, Walker {
     
     override init() {
         super.init()
-        self.locationManager.delegate = self
+        self.setLocationConfig()
     }
     
     deinit {
@@ -48,6 +48,13 @@ public class WalkViewModel: NSObject, Walker {
 extension WalkViewModel {
     func startRun() {
         // TODO: - Start Run
+        self.time = 0
+        self.distance = Measurement(value: 0, unit: UnitLength.meters)
+        self.locations.removeAll()
+        self.walkTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: { _ in
+            self.walkTime()
+        })
+        self.locationManager.startUpdatingLocation()
     }
     
     func endRun() {
@@ -57,8 +64,20 @@ extension WalkViewModel {
 
 // MARK: - Private Functions
 extension WalkViewModel {
+    private func setLocationConfig() {
+        self.locationManager.delegate = self
+        self.locationManager.activityType = .fitness
+        self.locationManager.distanceFilter = 5.0
+    }
+    
     private func walkTime() {
         self.time += 1
+        let distance = Format.distance(self.distance)
+        let time = Format.time(self.time)
+        let pace = Format.pace(distance: self.distance, seconds: self.time, outputUnit: Unit.minutesPerKilometer)
+        self.delegate?.walk(distance: distance,
+                            time: time,
+                            pace: pace)
     }
 }
 
