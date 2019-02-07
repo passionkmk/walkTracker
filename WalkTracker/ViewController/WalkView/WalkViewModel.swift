@@ -9,22 +9,30 @@
 import Foundation
 import CoreLocation
 
-// MARK: - Runner Protocol
-public protocol Runner: class {
+// MARK: - Walker Protocol
+protocol Walker {
     var locations: [CLLocation] { get set }
     var distance: Measurement<UnitLength> { get set }
-    var duration: Int { get set }
+    var time: Int { get set }
     func startRun()
     func endRun()
 }
 
+public protocol WalkViewModelDelegate: class {
+    func walk(distance: String, time: String, pace: String)
+}
+
 // MARK: - Initialize
-public class WalkViewModel: NSObject, Runner {
+public class WalkViewModel: NSObject, Walker {
     let locationManager = LocationManager.shared
     
-    public var locations: [CLLocation] = []
-    public var distance: Measurement<UnitLength> = Measurement(value: 0, unit: UnitLength.meters)
-    public var duration: Int = 0
+    var locations: [CLLocation] = []
+    var distance: Measurement<UnitLength> = Measurement(value: 0, unit: UnitLength.meters)
+    var time: Int = 0
+    
+    weak var delegate: WalkViewModelDelegate?
+    
+    private var walkTimer: Timer?
     
     override init() {
         super.init()
@@ -36,15 +44,24 @@ public class WalkViewModel: NSObject, Runner {
     }
 }
 
+// MARK: - Public Functions
 extension WalkViewModel {
-    public func startRun() {
+    func startRun() {
         // TODO: - Start Run
     }
     
-    public func endRun() {
+    func endRun() {
         // TODO: - End Run
     }
 }
+
+// MARK: - Private Functions
+extension WalkViewModel {
+    private func walkTime() {
+        self.time += 1
+    }
+}
+
 
 // MARK: - CLLocationManager Delegate
 extension WalkViewModel: CLLocationManagerDelegate {
