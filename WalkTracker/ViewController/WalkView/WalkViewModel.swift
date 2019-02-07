@@ -14,8 +14,8 @@ protocol Walker {
     var locations: [CLLocation] { get set }
     var distance: Measurement<UnitLength> { get set }
     var time: Int { get set }
-    func startRun()
-    func endRun()
+    func startWalk()
+    func endWalk()
 }
 
 public protocol WalkViewModelDelegate: class {
@@ -46,8 +46,7 @@ public class WalkViewModel: NSObject, Walker {
 
 // MARK: - Public Functions
 extension WalkViewModel {
-    func startRun() {
-        // TODO: - Start Run
+    func startWalk() {
         self.time = 0
         self.distance = Measurement(value: 0, unit: UnitLength.meters)
         self.locations.removeAll()
@@ -57,8 +56,10 @@ extension WalkViewModel {
         self.locationManager.startUpdatingLocation()
     }
     
-    func endRun() {
-        // TODO: - End Run
+    func endWalk() {
+        self.locationManager.stopUpdatingLocation()
+        self.walkTimer?.invalidate()
+        self.saveWalk()
     }
 }
 
@@ -79,13 +80,17 @@ extension WalkViewModel {
                             time: time,
                             pace: pace)
     }
+    
+    private func saveWalk() {
+        // TODO: - Save Walk
+    }
 }
 
 
 // MARK: - CLLocationManager Delegate
 extension WalkViewModel: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        
+        // TODO: - Update Walk infomation
     }
 }
 
