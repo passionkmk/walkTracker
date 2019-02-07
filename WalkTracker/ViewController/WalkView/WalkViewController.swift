@@ -13,7 +13,7 @@ class WalkViewController: UIViewController {
     @IBOutlet weak var walkButton: UIButton!
     
     @IBOutlet weak var distanceLabel: UILabel!
-    @IBOutlet weak var durationLabel: UILabel!
+    @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var paceLabel: UILabel!
     
     let walk: WalkViewModel = WalkViewModel()

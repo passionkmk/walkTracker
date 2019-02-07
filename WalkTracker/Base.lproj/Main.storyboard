@@ -134,8 +134,8 @@
                     <tabBarItem key="tabBarItem" title="WALK" id="vRc-wt-IjB"/>
                     <connections>
                         <outlet property="distanceLabel" destination="TGk-oN-rRk" id="jja-rR-MCe"/>
-                        <outlet property="durationLabel" destination="uJX-27-Z8o" id="bML-4I-2Hd"/>
                         <outlet property="paceLabel" destination="Fji-kW-LrV" id="SwU-bi-4N7"/>
+                        <outlet property="timeLabel" destination="uJX-27-Z8o" id="p4W-lx-pIe"/>
                         <outlet property="walkButton" destination="qfb-KC-yEq" id="tFF-gK-l9f"/>
                         <segue destination="zsS-7M-I6G" kind="show" id="I6H-Uo-Psd"/>
                     </connections>
