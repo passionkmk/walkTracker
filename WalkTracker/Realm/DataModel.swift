@@ -8,9 +8,9 @@
 import Foundation
 import RealmSwift
 
-class Run: Object {
+class Walk: Object {
     @objc dynamic var distance: Double = 0.0
-    @objc dynamic var duration: Int = 0
+    @objc dynamic var time: Int = 0
     @objc dynamic var date: Date = Date(timeIntervalSince1970: 1)
     let locations: List<Location> = List<Location>()
 }
