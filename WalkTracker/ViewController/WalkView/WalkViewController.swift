@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MapKit
 
 // MARK: - Overrides
 class WalkViewController: UIViewController {
@@ -16,7 +17,9 @@ class WalkViewController: UIViewController {
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var paceLabel: UILabel!
     
-    let walk: WalkViewModel = WalkViewModel()
+    @IBOutlet weak var mapView: MKMapView!
+    
+    var walk: WalkViewModel!
     
     private var walkStatus: WalkStatus = .ready {
         willSet {
@@ -26,6 +29,7 @@ class WalkViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.walk = WalkViewModel(mapView: self.mapView)
         self.updateUI(status: self.walkStatus)
     }
     

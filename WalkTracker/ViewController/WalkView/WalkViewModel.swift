@@ -8,35 +8,41 @@
 
 import Foundation
 import CoreLocation
+import MapKit
 
 // MARK: - Walker Protocol
 protocol Walker {
     var locations: [CLLocation] { get set }
     var distance: Measurement<UnitLength> { get set }
     var time: Int { get set }
+    var mapView: MKMapView { get }
     func startWalk()
     func endWalk()
 }
 
 public protocol WalkViewModelDelegate: class {
-    func walk(distance: String, time: String, pace: String)
+    func walkForTime(distance: String, time: String, pace: String)
 }
 
 // MARK: - Initialize
 public class WalkViewModel: NSObject, Walker {
+
     let locationManager = LocationManager.shared
     
-    var locations: [CLLocation] = []
-    var distance: Measurement<UnitLength> = Measurement(value: 0, unit: UnitLength.meters)
-    var time: Int = 0
+    var locations: [CLLocation]
+    var distance: Measurement<UnitLength>
+    var time: Int
+    var mapView: MKMapView
     
     weak var delegate: WalkViewModelDelegate?
     
     private var walkTimer: Timer?
     
-    override init() {
-        super.init()
-        self.setLocationConfig()
+    init(mapView: MKMapView) {
+        self.mapView = mapView
+        self.locations = []
+        self.distance = Measurement(value: 0, unit: UnitLength.meters)
+        self.time = 0
     }
     
     deinit {
@@ -47,6 +53,7 @@ public class WalkViewModel: NSObject, Walker {
 // MARK: - Public Functions
 extension WalkViewModel {
     func startWalk() {
+        self.setLocationConfig()
         self.time = 0
         self.distance = Measurement(value: 0, unit: UnitLength.meters)
         self.locations.removeAll()
@@ -76,7 +83,7 @@ extension WalkViewModel {
         let distance = Format.distance(self.distance)
         let time = Format.time(self.time)
         let pace = Format.pace(distance: self.distance, seconds: self.time, outputUnit: Unit.minutesPerKilometer)
-        self.delegate?.walk(distance: distance,
+        self.delegate?.walkForTime(distance: distance,
                             time: time,
                             pace: pace)
     }
@@ -89,8 +96,24 @@ extension WalkViewModel {
 
 // MARK: - CLLocationManager Delegate
 extension WalkViewModel: CLLocationManagerDelegate {
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        // TODO: - Update Walk infomation
+    private func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        // TODO: - 현위치만 보이는 맵에 기능에 대한 고려가 필요
+        for location in locations {
+            let howRecent = location.timestamp.timeIntervalSinceNow
+            // MEMO: - 현재위치와 20미터 내 오차가 있는지, 위치가 최근에 찍힌 것인지
+            guard location.horizontalAccuracy < 20 && abs(howRecent) < 10 else {
+                continue
+            }
+            
+            if let last = self.locations.last {
+                let delta = location.distance(from: last)
+                self.distance = self.distance + Measurement(value: delta, unit: UnitLength.meters)
+                self.mapView.addLine(last: last.coordinate, new: location.coordinate)
+                self.mapView.setFocus(location: location.coordinate)
+            }
+            
+            self.locations.append(location)
+        }
     }
 }
 
