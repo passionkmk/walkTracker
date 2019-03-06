@@ -9,9 +9,15 @@
 import Foundation
 import MapKit
 
+// MARK: - Initialize
 struct WalkInfo {
     var locations: [CLLocation]
     var distance: Measurement<UnitLength>
     var time: Int
     var date: Date
+}
+
+// MARK: - Value
+extension WalkInfo {
+    
 }

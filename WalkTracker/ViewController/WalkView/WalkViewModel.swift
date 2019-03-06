@@ -38,15 +38,16 @@ public class WalkViewModel: NSObject, Walker {
     
     private var walkTimer: Timer?
     
-    init(mapView: MKMapView) {
+    init(_ vc: WalkViewModelDelegate, mapView: MKMapView) {
         self.mapView = mapView
+        self.delegate = vc
         self.locations = []
         self.distance = Measurement(value: 0, unit: UnitLength.meters)
         self.time = 0
     }
     
     deinit {
-        
+        self.walkTimer = nil
     }
 }
 
@@ -89,7 +90,11 @@ extension WalkViewModel {
     }
     
     private func saveWalk() {
-        // TODO: - Save Walk
+        let walk = WalkInfo(locations: self.locations,
+                            distance: self.distance,
+                            time: self.time,
+                            date: Date())
+        Record.saveWalk(walk)
     }
 }
 

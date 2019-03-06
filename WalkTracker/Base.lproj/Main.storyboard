@@ -53,7 +53,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qfb-KC-yEq">
-                                <rect key="frame" x="152.5" y="158.5" width="70" height="60"/>
+                                <rect key="frame" x="152.5" y="108.5" width="70" height="60"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
                                 <state key="normal" title="시작">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -63,7 +63,7 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Dyb-XQ-m8j">
-                                <rect key="frame" x="120.5" y="250.5" width="134" height="166"/>
+                                <rect key="frame" x="120.5" y="200.5" width="134" height="166"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="vf4-yt-Tag">
                                         <rect key="frame" x="0.0" y="0.0" width="38.5" height="166"/>
@@ -121,19 +121,27 @@
                                     <constraint firstItem="TGk-oN-rRk" firstAttribute="top" secondItem="f8X-Qg-UTb" secondAttribute="top" id="zCe-K9-J9s"/>
                                 </constraints>
                             </stackView>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="eFb-pL-HBe">
+                                <rect key="frame" x="0.0" y="416.5" width="375" height="201.5"/>
+                            </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Dyb-XQ-m8j" firstAttribute="centerX" secondItem="xiS-Wf-Ug4" secondAttribute="centerX" id="3Ws-eZ-rZ1"/>
+                            <constraint firstItem="X7N-8c-FTc" firstAttribute="trailing" secondItem="eFb-pL-HBe" secondAttribute="trailing" id="43c-Uo-Qfa"/>
                             <constraint firstItem="Dyb-XQ-m8j" firstAttribute="top" secondItem="qfb-KC-yEq" secondAttribute="bottom" constant="32" id="FZH-e9-qfo"/>
-                            <constraint firstItem="Dyb-XQ-m8j" firstAttribute="centerY" secondItem="xiS-Wf-Ug4" secondAttribute="centerY" id="JcC-pF-brI"/>
+                            <constraint firstItem="Dyb-XQ-m8j" firstAttribute="centerY" secondItem="xiS-Wf-Ug4" secondAttribute="centerY" constant="-50" id="JcC-pF-brI"/>
+                            <constraint firstItem="eFb-pL-HBe" firstAttribute="top" secondItem="Dyb-XQ-m8j" secondAttribute="bottom" constant="50" id="JzS-BH-9MH"/>
+                            <constraint firstItem="X7N-8c-FTc" firstAttribute="bottom" secondItem="eFb-pL-HBe" secondAttribute="bottom" id="M2g-5e-SnB"/>
                             <constraint firstItem="qfb-KC-yEq" firstAttribute="centerX" secondItem="Dyb-XQ-m8j" secondAttribute="centerX" id="Wky-so-6x7"/>
+                            <constraint firstItem="eFb-pL-HBe" firstAttribute="leading" secondItem="X7N-8c-FTc" secondAttribute="leading" id="e04-W3-YTA"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="X7N-8c-FTc"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="WALK" id="vRc-wt-IjB"/>
                     <connections>
                         <outlet property="distanceLabel" destination="TGk-oN-rRk" id="jja-rR-MCe"/>
+                        <outlet property="mapView" destination="eFb-pL-HBe" id="fQ9-Z9-U4e"/>
                         <outlet property="paceLabel" destination="Fji-kW-LrV" id="SwU-bi-4N7"/>
                         <outlet property="timeLabel" destination="uJX-27-Z8o" id="p4W-lx-pIe"/>
                         <outlet property="walkButton" destination="qfb-KC-yEq" id="tFF-gK-l9f"/>

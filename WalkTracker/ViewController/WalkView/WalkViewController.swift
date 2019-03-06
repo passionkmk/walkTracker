@@ -10,7 +10,7 @@ import UIKit
 import MapKit
 
 // MARK: - Overrides
-class WalkViewController: UIViewController {
+class WalkViewController: UIViewController, WalkViewModelDelegate {
     @IBOutlet weak var walkButton: UIButton!
     
     @IBOutlet weak var distanceLabel: UILabel!
@@ -19,7 +19,7 @@ class WalkViewController: UIViewController {
     
     @IBOutlet weak var mapView: MKMapView!
     
-    var walk: WalkViewModel!
+    var walk: WalkViewModel?
     
     private var walkStatus: WalkStatus = .ready {
         willSet {
@@ -29,7 +29,7 @@ class WalkViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.walk = WalkViewModel(mapView: self.mapView)
+        self.walk = WalkViewModel(self, mapView: self.mapView)
         self.updateUI(status: self.walkStatus)
     }
     
@@ -41,13 +41,20 @@ class WalkViewController: UIViewController {
 // MARK: - Actions
 extension WalkViewController {
     @IBAction func walk(_ sender: UIButton) {
+        guard let walk = self.walk else {
+            return
+        }
+        
         switch self.walkStatus {
         case .ready:
             self.walkStatus = .walking
+            walk.startWalk()
         case .walking:
             self.walkStatus = .finish
+            walk.endWalk()
         case .finish:
             self.walkStatus = .ready
+            // TODO: - Recoed 및 산책 기록 리스트 업데이트
         }
     }
 }
@@ -69,5 +76,14 @@ extension WalkViewController {
             self.walkButton.setTitleColor(Finish.Color.walkButtonColor, for: .normal)
             break
         }
+    }
+}
+
+// MARK: - WalkViewModel Delegate
+extension WalkViewController {
+    func walkForTime(distance: String, time: String, pace: String) {
+        self.distanceLabel.text = distance
+        self.timeLabel.text = time
+        self.paceLabel.text = pace
     }
 }
