@@ -18,5 +18,8 @@ class Walk: Object {
 class Location: Object {
     @objc dynamic var latitude: Double = 0.0
     @objc dynamic var logitude: Double = 0.0
+    @objc dynamic var altitude: Double = 0.0
+    @objc dynamic var horizontalAccuracy: Double = 0.0
+    @objc dynamic var verticalAccuracy: Double = 0.0
     @objc dynamic var timestamp: Date = Date(timeIntervalSince1970: 1)
 }

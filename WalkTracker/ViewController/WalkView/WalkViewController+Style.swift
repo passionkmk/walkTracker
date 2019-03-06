@@ -8,6 +8,7 @@
 
 import UIKit
 
+// MARK: - Style
 extension WalkViewController {
     enum Ready {
         enum Color {

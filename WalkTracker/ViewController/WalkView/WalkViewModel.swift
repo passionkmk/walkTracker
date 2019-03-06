@@ -24,7 +24,7 @@ public protocol WalkViewModelDelegate: class {
     func walkForTime(distance: String, time: String, pace: String)
 }
 
-// MARK: - Initialize
+// MARK: - Main Class
 public class WalkViewModel: NSObject, Walker {
 
     let locationManager = LocationManager.shared
