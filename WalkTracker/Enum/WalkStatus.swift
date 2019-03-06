@@ -1,5 +1,5 @@
 //
-//  Enum.swift
+//  WalkStatus.swift
 //  WalkTracker
 //
 //  Created by 김민구 on 23/01/2019.

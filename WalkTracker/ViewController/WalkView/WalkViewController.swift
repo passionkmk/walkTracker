@@ -55,6 +55,10 @@ extension WalkViewController {
         case .finish:
             self.walkStatus = .ready
             // TODO: - Recoed 및 산책 기록 리스트 업데이트
+            // 1. 맵렌더링 지우고
+            // 2. 로케이션 저장하고
+            // 3.
+            
         }
     }
 }

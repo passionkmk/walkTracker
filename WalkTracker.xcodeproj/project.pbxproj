@@ -21,11 +21,12 @@
 		7B305A7D21F441A70060E71E /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B305A7C21F441A70060E71E /* DataModel.swift */; };
 		7B305A8121F446F70060E71E /* WalkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B305A8021F446F70060E71E /* WalkViewController.swift */; };
 		7B305A8421F4B4200060E71E /* WalkViewController+Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B305A8321F4B4200060E71E /* WalkViewController+Style.swift */; };
-		7B305A8721F8B7DF0060E71E /* Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B305A8621F8B7DF0060E71E /* Enum.swift */; };
+		7B305A8721F8B7DF0060E71E /* WalkStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B305A8621F8B7DF0060E71E /* WalkStatus.swift */; };
 		7B483270222179920078C50B /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B48326F222179920078C50B /* Record.swift */; };
 		7B483272222179AF0078C50B /* WalkModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B483271222179AF0078C50B /* WalkModel.swift */; };
 		7B48327422217BBF0078C50B /* MapExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B48327322217BBF0078C50B /* MapExtension.swift */; };
 		7B4832782226A6E40078C50B /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4832772226A6E40078C50B /* Log.swift */; };
+		7BEB7172222FF1C90077DBD3 /* SpotType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BEB7171222FF1C90077DBD3 /* SpotType.swift */; };
 		C6667C520D2FCB94FF848F71 /* Pods_WalkTracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C46863375A676ED30840C647 /* Pods_WalkTracker.framework */; };
 /* End PBXBuildFile section */
 
@@ -68,11 +69,12 @@
 		7B305A7C21F441A70060E71E /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		7B305A8021F446F70060E71E /* WalkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkViewController.swift; sourceTree = "<group>"; };
 		7B305A8321F4B4200060E71E /* WalkViewController+Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WalkViewController+Style.swift"; sourceTree = "<group>"; };
-		7B305A8621F8B7DF0060E71E /* Enum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enum.swift; sourceTree = "<group>"; };
+		7B305A8621F8B7DF0060E71E /* WalkStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkStatus.swift; sourceTree = "<group>"; };
 		7B48326F222179920078C50B /* Record.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Record.swift; sourceTree = "<group>"; };
 		7B483271222179AF0078C50B /* WalkModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalkModel.swift; sourceTree = "<group>"; };
 		7B48327322217BBF0078C50B /* MapExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapExtension.swift; sourceTree = "<group>"; };
 		7B4832772226A6E40078C50B /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Log.swift; path = "../../../../../Downloads/AppStoreSearchExam-master/AppStoreSearchExam/Modules/Tool/Log.swift"; sourceTree = "<group>"; };
+		7BEB7171222FF1C90077DBD3 /* SpotType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotType.swift; sourceTree = "<group>"; };
 		C46863375A676ED30840C647 /* Pods_WalkTracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WalkTracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D030994AF2817E13EED4F00D /* Pods-WalkTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WalkTracker.release.xcconfig"; path = "Pods/Target Support Files/Pods-WalkTracker/Pods-WalkTracker.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -220,7 +222,8 @@
 		7B305A8521F8B7CD0060E71E /* Enum */ = {
 			isa = PBXGroup;
 			children = (
-				7B305A8621F8B7DF0060E71E /* Enum.swift */,
+				7B305A8621F8B7DF0060E71E /* WalkStatus.swift */,
+				7BEB7171222FF1C90077DBD3 /* SpotType.swift */,
 			);
 			path = Enum;
 			sourceTree = "<group>";
@@ -424,8 +427,9 @@
 				7B192CD021FD94710067604C /* LocationManager.swift in Sources */,
 				7B48327422217BBF0078C50B /* MapExtension.swift in Sources */,
 				7B305A7D21F441A70060E71E /* DataModel.swift in Sources */,
-				7B305A8721F8B7DF0060E71E /* Enum.swift in Sources */,
+				7B305A8721F8B7DF0060E71E /* WalkStatus.swift in Sources */,
 				7B305A8421F4B4200060E71E /* WalkViewController+Style.swift in Sources */,
+				7BEB7172222FF1C90077DBD3 /* SpotType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
